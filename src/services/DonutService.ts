@@ -1,6 +1,5 @@
 import axios from 'axios'
 import DonutsList from '../models/DonutList'
-import SingleDonutResponse from '../models/singleDonutResponse'
 
 export const getDonuts = (): Promise<DonutsList> => {
   return axios
@@ -10,7 +9,7 @@ export const getDonuts = (): Promise<DonutsList> => {
     })
 }
 
-export const getDonutById = (id: string): Promise<SingleDonutResponse> => {
+export const getDonutById = (id: string) => {
   return axios
     .get(
       `https://grandcircusco.github.io/demo-apis/donuts/${encodeURIComponent(

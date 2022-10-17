@@ -11,9 +11,10 @@ const Details = () => {
 
   useEffect(() => {
     getDonutById(id!).then((res) => {
-      setDonutDetails(res.data)
+      console.log(res)
+      setDonutDetails(res)
     })
-  }, [])
+  }, [id])
 
   return (
     <div className='Details'>
