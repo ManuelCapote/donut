@@ -1,20 +1,20 @@
 import { createContext } from 'react'
 import Donut from '../models/Donut'
 
-interface AddToCartContextModel {
+interface CartContextModel {
   cart: Donut[]
   addToCart: (donut: Donut) => void
   removeFromCart: (id: string) => void
   inTheCart: (id: string) => boolean
 }
 
-const defaultValues: AddToCartContextModel = {
+const defaultValues: CartContextModel = {
   cart: [],
   addToCart: () => {},
   removeFromCart: () => {},
   inTheCart: () => false,
 }
 
-const AddToCartContext = createContext(defaultValues)
+const CartContext = createContext(defaultValues)
 
-export default AddToCartContext
+export default CartContext

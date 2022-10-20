@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { getDonutById } from '../services/DonutService'
 import Donut from '../models/Donut'
 import './Details.css'
-import Result from './Result'
+import DonutDetailed from './DonutDetailed'
 
 const Details = () => {
   const id: string | undefined = useParams().id
@@ -11,14 +11,13 @@ const Details = () => {
 
   useEffect(() => {
     getDonutById(id!).then((res) => {
-      console.log(res)
       setDonutDetails(res)
     })
   }, [id])
 
   return (
     <div className='Details'>
-      {donutDetails ? <Result donut={donutDetails} /> : <p>Loading</p>}
+      {donutDetails ? <DonutDetailed donut={donutDetails} /> : <p>Loading</p>}
     </div>
   )
 }

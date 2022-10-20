@@ -1,12 +1,12 @@
 import { ReactNode, useState } from 'react'
 import Donut from '../models/Donut'
-import AddToCartContext from './AddToCartContext'
+import CartContext from './CartContext'
 
 interface Props {
   children: ReactNode
 }
 
-const AddToCartContextProvider = ({ children }: Props) => {
+const CartContextProvider = ({ children }: Props) => {
   const [cart, setCart] = useState<Donut[]>([])
   const addToCart = (donut: Donut): void => {
     setCart((prev) => [...prev, donut])
@@ -21,12 +21,12 @@ const AddToCartContextProvider = ({ children }: Props) => {
     cart.some((donut) => donut.id === id)
 
   return (
-    <AddToCartContext.Provider
+    <CartContext.Provider
       value={{ cart, addToCart, removeFromCart, inTheCart }}
     >
       {children}
-    </AddToCartContext.Provider>
+    </CartContext.Provider>
   )
 }
 
-export default AddToCartContext
+export default CartContextProvider

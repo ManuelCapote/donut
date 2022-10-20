@@ -1,5 +1,5 @@
 import Donut from './Donut'
 
-export default interface DonutsList {
+export default interface DonutsListResponse {
   results: Donut[]
 }

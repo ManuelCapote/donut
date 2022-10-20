@@ -2,28 +2,28 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import AddToCartContext from '../context/CartContext'
 import Donut from '../models/Donut'
-import './Result.css'
+import './DonutDetailed.css'
 
 interface Props {
   donut: Donut
 }
 
-const Result = ({ donut }: Props) => {
+const DonutDetailed = ({ donut }: Props) => {
   const { addToCart, removeFromCart, inTheCart } = useContext(AddToCartContext)
 
   return (
-    <li className='Result'>
-      <Link className='link' to={`/details/${encodeURIComponent(donut.id)}`}>
-        <h3>{donut.name}</h3>
-      </Link>
+    <div className='DonutDetailed'>
+      <h3>{donut.name}</h3>
       <img src={donut.photo} alt={donut.name} />
+      <p>Calories: {donut.calories}</p>
+      <p>{donut.extras}</p>
       {inTheCart(donut.id) ? (
         <button onClick={() => removeFromCart(donut.id)}>Remove</button>
       ) : (
         <button onClick={() => addToCart(donut)}>Add to Cart</button>
       )}
-    </li>
+    </div>
   )
 }
 
-export default Result
+export default DonutDetailed
